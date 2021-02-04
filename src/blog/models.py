@@ -9,6 +9,7 @@ from django.db import models
 # b. python manage.py migrate
 # The above is done so the database knows whats in the model.
 
+
 class BlogPost(models.Model):
     title = models.TextField()
     content = models.TextField(null=True, blank=True)
