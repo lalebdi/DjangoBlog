@@ -11,5 +11,13 @@
 {{ user }}
 
 {{ user.is_authenticated }}
+{% if user.is_authenticated %}
+
+<h1> User only data</h1>
+    {% for i in my_list %}
+            <h3>{{ i }}</h3>
+    {% endfor %}
+
+{% endif %}
 
 {% endblock %}
