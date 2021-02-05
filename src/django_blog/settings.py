@@ -37,7 +37,7 @@ INSTALLED_APPS = [  # More like components
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'blog',  # The components should be pluggable
 ]
 
 MIDDLEWARE = [
