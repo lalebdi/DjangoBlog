@@ -20,6 +20,42 @@ def blog_post_detail_page(request, slug):
     return render(request, template_name, context)
 
 
+def blog_post_list_view(request):
+    '''lists out objects, could be search'''
+    template_name = 'blog_post_list.html'
+    context = {"object_list": []}
+    return render(request, template_name, context)
+
+
+def blog_post_create_view(request):
+    '''Create objects by using a form'''
+    template_name = 'blog_post_create.html'
+    context = {'form': ''}
+    return render(request, template_name, context)
+
+
+def blog_post_detail_view(request, slug):
+    ''' this is going to be 1 object or detail view'''
+    obj = get_object_or_404(BlogPost, slug=slug)
+    template_name = 'blog_post_detail.html'
+    context = {"object": obj}
+    return render(request, template_name, context)
+
+
+def blog_post_update_view(request):
+    ''' this is going to be 1 object or detail view'''
+    obj = get_object_or_404(BlogPost, slug=slug)
+    template_name = 'blog_post_update.html'
+    context = {"object": obj, 'form': None}
+    return render(request, template_name, context)
+
+
+def blog_post_delete_view(request):
+    ''' this is going to be 1 object or detail view'''
+    obj = get_object_or_404(BlogPost, slug=slug)
+    template_name = 'blog_post_delete.html'
+    context = {"object": obj}
+    return render(request, template_name, context)
 
 
 '''
