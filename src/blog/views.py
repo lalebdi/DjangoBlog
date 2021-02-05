@@ -4,8 +4,8 @@ from django.shortcuts import render
 from .models import BlogPost
 
 
-def blog_post_detail_page(request):
-    obj = BlogPost.objects.get(id=1) #query -> database -> get the data -> django renders it
+def blog_post_detail_page(request, id):
+    obj = BlogPost.objects.get(id=id) # this query -> database -> get the data -> django renders it
     template_name = "blog_post_detail.html"
     context = {"object": obj}
     return render(request, template_name, context)
