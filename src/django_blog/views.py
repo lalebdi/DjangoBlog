@@ -25,3 +25,5 @@ def example_page(request):
     template_obj = get_template(template_name)
     rendered_item = template_obj.render(context)
     return HttpResponse(rendered_item)
+
+
