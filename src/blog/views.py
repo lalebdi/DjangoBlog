@@ -21,9 +21,10 @@ def blog_post_detail_page(request, slug):
 
 
 def blog_post_list_view(request):
-    '''lists out objects, could be search'''
+    '''lists out objects, could be search. For search change the .all() to .filter(title__icontains='insert word')'''
+    qs = BlogPost.objects.all()  # Objects is a django manager that allows me to call methods without modifying the model
     template_name = 'blog_post_list.html'
-    context = {"object_list": []}
+    context = {"object_list": qs}  # queryset -> list of objects
     return render(request, template_name, context)
 
 
@@ -43,7 +44,6 @@ def blog_post_detail_view(request, slug):
 
 
 def blog_post_update_view(request):
-    ''' this is going to be 1 object or detail view'''
     obj = get_object_or_404(BlogPost, slug=slug)
     template_name = 'blog_post_update.html'
     context = {"object": obj, 'form': None}
@@ -51,7 +51,6 @@ def blog_post_update_view(request):
 
 
 def blog_post_delete_view(request):
-    ''' this is going to be 1 object or detail view'''
     obj = get_object_or_404(BlogPost, slug=slug)
     template_name = 'blog_post_delete.html'
     context = {"object": obj}
