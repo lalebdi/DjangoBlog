@@ -11,3 +11,13 @@ G
 src/django_blog/urls.py,1/8/1827a7a45bfbd4a20bddb130920772cbf0c8da8d
 H
 src/django_blog/views.py,0/0/0054de68e812ad9ec5e78bf2b785d2059965a402
+B
+src/blog/models.py,c/3/c34ff28ffc03a01bf7a4a66f60662a8d873c0d22
+A
+src/blog/admin.py,0/a/0a5be02aa46f48436d21206d8ca0856f83212981
+G
+src/templates/home.html,6/6/66155e654c54c5b16eeccd19c1f758746032a344
+S
+#src/templates/blog_post_detail.html,e/1/e1ded10b02a9fcd852168f8aead8379539c4e871
+A
+src/blog/views.py,8/c/8c315b130032cd3c9a3e628eac715da6beb5d056
