@@ -11,5 +11,6 @@ from django.db import models
 
 
 class BlogPost(models.Model):
+    # id = models.IntegerField()
     title = models.TextField()
     content = models.TextField(null=True, blank=True)
