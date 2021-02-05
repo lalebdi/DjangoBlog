@@ -9,3 +9,4 @@ def blog_post_detail_page(request):
     template_name = "blog_post_detail.html"
     context = {"object": obj}
     return render(request, template_name, context)
+
