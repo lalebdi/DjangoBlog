@@ -10,10 +10,11 @@ from .models import BlogPost
 
 def blog_post_detail_page(request, slug):
     # queryset = get_object_or_404(BlogPost, slug=slug)
-    queryset = BlogPost.objects.filter(slug=slug)
-    if queryset.count() != 1:  # this will handle the multiple objects returned errors
-        raise Http404
-    obj = queryset.first()
+    # queryset = BlogPost.objects.filter(slug=slug)
+    # if queryset.count() == 0:  # this will handle the multiple objects returned errors
+    #     raise Http404
+    # obj = queryset.first()
+    obj = get_object_or_404(BlogPost, slug=slug)
     template_name = "blog_post_detail.html"
     context = {"object": obj}
     return render(request, template_name, context)
