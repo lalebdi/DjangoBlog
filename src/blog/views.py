@@ -23,14 +23,14 @@ from .models import BlogPost
 def blog_post_list_view(request):
     '''lists out objects, could be search. For search change the .all() to .filter(title__icontains='insert word')'''
     qs = BlogPost.objects.all()  # Objects is a django manager that allows me to call methods without modifying the model
-    template_name = 'blog_post_list.html'
+    template_name = 'blog/list.html'
     context = {"object_list": qs}  # queryset -> list of objects
     return render(request, template_name, context)
 
 
 def blog_post_create_view(request):
     '''Create objects by using a form'''
-    template_name = 'blog_post_create.html'
+    template_name = 'blog/create.html'
     context = {'form': ''}
     return render(request, template_name, context)
 
@@ -38,21 +38,21 @@ def blog_post_create_view(request):
 def blog_post_detail_view(request, slug):
     ''' this is going to be 1 object or detail view'''
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name = 'blog_post_detail.html'
+    template_name = 'blog/detail.html'
     context = {"object": obj}
     return render(request, template_name, context)
 
 
 def blog_post_update_view(request):
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name = 'blog_post_update.html'
+    template_name = 'blog/update.html'
     context = {"object": obj, 'form': None}
     return render(request, template_name, context)
 
 
 def blog_post_delete_view(request):
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name = 'blog_post_delete.html'
+    template_name = 'blog/delete.html'
     context = {"object": obj}
     return render(request, template_name, context)
 
