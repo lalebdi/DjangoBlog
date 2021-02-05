@@ -22,7 +22,7 @@ from blog.views import blog_post_detail_page
 urlpatterns = [
     path('', home_page),
     # path('blog/', blog_post_detail_page),
-    path('blog/<int:id>/', blog_post_detail_page), # it will pass an addition argument to the view's function
+    path('blog/<str:slug>/', blog_post_detail_page), # it will pass an addition argument to the view's function
     path('about/', about_page),
     path('contact/', contact_page),
     path('example/', example_page),
