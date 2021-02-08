@@ -43,14 +43,14 @@ def blog_post_detail_view(request, slug):
     return render(request, template_name, context)
 
 
-def blog_post_update_view(request):
+def blog_post_update_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
     template_name = 'blog/update.html'
     context = {"object": obj, 'form': None}
     return render(request, template_name, context)
 
 
-def blog_post_delete_view(request):
+def blog_post_delete_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
     template_name = 'blog/delete.html'
     context = {"object": obj}
