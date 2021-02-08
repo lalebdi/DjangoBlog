@@ -3,7 +3,7 @@ from django.http import Http404
 
 # Create your views here.
 from .models import BlogPost
-
+from .forms import BlogPostForm
 
 # Get implies a single object
 # filter implies a list of objects. query sets will help account for the repeated slug problem (Multiple Objects returned)
@@ -30,8 +30,13 @@ def blog_post_list_view(request):
 
 def blog_post_create_view(request):
     '''Create objects by using a form'''
-    template_name = 'blog/create.html'
-    context = {'form': ''}
+    form = BlogPostForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+        title = form.cleaned_data["title"]
+        obj = BlogPost.objects.create(title=title) #THis is the django built in method for obj = BlogPost() | obj.title = title | obj.save()
+    template_name = 'form.html'
+    context = {'form': form}
     return render(request, template_name, context)
 
 
