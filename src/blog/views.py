@@ -32,9 +32,8 @@ def blog_post_create_view(request):
     '''Create objects by using a form'''
     form = BlogPostForm(request.POST or None)
     if form.is_valid():
-        print(form.cleaned_data)
-        title = form.cleaned_data["title"]
-        obj = BlogPost.objects.create(title=title) #THis is the django built in method for obj = BlogPost() | obj.title = title | obj.save()
+        obj = BlogPost.objects.create(**form.cleaned_data) #THis is the django built in method for obj = BlogPost() | obj.title = title | obj.save()
+        form = BlogPostForm()
     template_name = 'form.html'
     context = {'form': form}
     return render(request, template_name, context)
