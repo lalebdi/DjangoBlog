@@ -20,6 +20,7 @@ def contact_page(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         print(form.cleaned_data)
+        form = ContactForm() # to wipe the fields after submit
     context = {
         "title": "Contact Us",
         "form": form
