@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -9,9 +10,12 @@ from django.db import models
 # b. python manage.py migrate
 # The above is done so the database knows whats in the model.
 
+User = settings.AUTH_USER_MODEL # -> whenever you need to add a user use this 🤷🏼‍♀️
 
-class BlogPost(models.Model):
+
+class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
     # id = models.IntegerField() or the primary key
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)  # slug is url encoded value e.g. hello world -> hello-world
     content = models.TextField(null=True, blank=True)
