@@ -33,10 +33,11 @@ def blog_post_list_view(request):
 # @login_required   # can use this -> (login_url='/login') instead of in the settings
 @staff_member_required
 def blog_post_create_view(request):
-    '''Create objects by using a form'''
+    '''  Create objects by using a form. request.user -> return something '''
     form = BlogPostModelForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
+        obj.user = request.user # sets the data when created
         obj.save()
 
         form = BlogPostModelForm()
