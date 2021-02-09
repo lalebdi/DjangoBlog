@@ -60,7 +60,7 @@ def blog_post_update_view(request, slug):
     if form.is_valid():
         form.save()
     template_name = 'form.html'
-    context = {'form': form, "title": f"Update {obj.title}"}
+    context = {"title": f"Update {obj.title}", 'form': form}
     return render(request, template_name, context)
 
 
