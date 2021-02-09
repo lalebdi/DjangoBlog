@@ -31,3 +31,11 @@ S
 #src/blog/templates/blog/delete.html,c/c/cc458b1479cd3b74782f7883417c6a87013eb4bc
 S
 #src/blog/templates/blog/create.html,d/0/d0d659ff45433bf1adec341fd266d93c111f66d3
+G
+src/templates/form.html,7/b/7b224cc7c24c5d75725d0556e295e24986d7f374
+L
+src/blog/templates/form.html,7/0/70827fa6e2a3c30f98d6b2f67cb0c1c3e04a51b5
+H
+src/django_blog/forms.py,0/d/0d25f5c776649ec6eabde204cde9c9e884df0f1d
+A
+src/blog/forms.py,3/c/3cfe35b34e32235834019b75d28d1dda82b9a2d5
