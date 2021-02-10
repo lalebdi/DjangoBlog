@@ -25,7 +25,10 @@ from .forms import BlogPostModelForm
 def blog_post_list_view(request):
     '''lists out objects, could be search. For search change the .all() to .filter(title__icontains='insert word')'''
     qs = BlogPost.objects.all().published()  # Objects is a django manager that allows me to call methods without modifying the model
-    template_name = 'blog/list.html' # ^ the published above is for the search coming later
+    if request.user.is_authenticated:
+        my_qs = BlogPost.objects.filter(user=request.user)
+        qs = (qs | my_qs ).distinct() # <- this combines both query sets and uses the only ones there
+    template_name = 'blog/list.html'
     context = {"object_list": qs}  # queryset -> list of objects
     return render(request, template_name, context)
 

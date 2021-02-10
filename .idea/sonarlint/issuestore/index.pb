@@ -39,3 +39,7 @@ H
 src/django_blog/forms.py,0/d/0d25f5c776649ec6eabde204cde9c9e884df0f1d
 A
 src/blog/forms.py,3/c/3cfe35b34e32235834019b75d28d1dda82b9a2d5
+I
+src/templates/navbar.html,4/3/43579a48e1f30420ad6f58b6cc8c647b9c0d3583
+X
+(src/blog/templates/blog/list-inline.html,0/5/0541c2a823992671baf0be24600932e70ead968a
