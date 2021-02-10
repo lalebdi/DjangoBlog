@@ -14,10 +14,16 @@ from django.utils import timezone
 User = settings.AUTH_USER_MODEL # -> whenever you need to add a user use this 🤷🏼‍♀️
 
 
-class BlogPostManager(models.Model):
+class BlogPostQuerySet(models.QuerySet):
     def published(self):
         now = timezone.now()
-        return self.get_queryset().filter(publish_date__lte=now)
+        # same thing as BlogPost.objects.all()
+        return self.filter(publish_date__lte=now)
+
+
+class BlogPostManager(models.Manager):
+    def get_queryset(self):
+        return BlogPostQuerySet(self.model, using=self._db)
 
 
 class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
@@ -29,6 +35,8 @@ class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
     publish_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    objects = BlogPostManager()
 
     class Meta:
         ordering =['-publish_date', '-updated', '-timestamp'] # the'-' to get the most recent one first

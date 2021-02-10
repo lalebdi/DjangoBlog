@@ -24,7 +24,7 @@ from .forms import BlogPostModelForm
 
 def blog_post_list_view(request):
     '''lists out objects, could be search. For search change the .all() to .filter(title__icontains='insert word')'''
-    qs = BlogPost.objects.all()  # Objects is a django manager that allows me to call methods without modifying the model
+    qs = BlogPost.objects.all().published()  # Objects is a django manager that allows me to call methods without modifying the model
     template_name = 'blog/list.html'
     context = {"object_list": qs}  # queryset -> list of objects
     return render(request, template_name, context)
