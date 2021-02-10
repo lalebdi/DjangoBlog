@@ -43,3 +43,9 @@ I
 src/templates/navbar.html,4/3/43579a48e1f30420ad6f58b6cc8c647b9c0d3583
 X
 (src/blog/templates/blog/list-inline.html,0/5/0541c2a823992671baf0be24600932e70ead968a
+O
+static_cdn_test/blank/blank.txt,b/c/bcb456cebe8ae0ab59f0e8a3144020ff4d2ac3b0
+I
+src/staticfiles/blank.txt,b/d/bd2aa0bb388b854f106c3fed6ea625aa27d5ca0b
+F
+src/searches/models.py,6/6/66dd8f97a796c06ce8d3000e7408d3e15e34a2a4
