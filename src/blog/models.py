@@ -25,6 +25,9 @@ class BlogPostManager(models.Manager):
     def get_queryset(self):
         return BlogPostQuerySet(self.model, using=self._db)
 
+    def published(self): # this method calls the published method above
+        return self.get_queryset().published()
+
 
 class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
     # id = models.IntegerField() or the primary key
