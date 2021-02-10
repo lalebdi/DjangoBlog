@@ -37,7 +37,7 @@ def blog_post_list_view(request):
 @staff_member_required
 def blog_post_create_view(request):
     '''  Create objects by using a form. request.user -> return something '''
-    form = BlogPostModelForm(request.POST or None)
+    form = BlogPostModelForm(request.POST or None, request.FILES or None) # request.FILES is there since we declared the enctype in the HTML
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user # sets the data when created

@@ -43,7 +43,7 @@ class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
     objects = BlogPostManager()
 
     class Meta:
-        ordering =['-publish_date', '-updated', '-timestamp'] # the'-' to get the most recent one first
+        ordering = ['-publish_date', '-updated', '-timestamp'] # the'-' to get the most recent one first
 
     def get_absolute_url(self):
         return f"/blog/{self.slug}"
