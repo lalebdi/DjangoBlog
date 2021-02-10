@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,6 +12,12 @@ from django.db import models
 # The above is done so the database knows whats in the model.
 
 User = settings.AUTH_USER_MODEL # -> whenever you need to add a user use this 🤷🏼‍♀️
+
+
+class BlogPostManager(models.Model):
+    def published(self):
+        now = timezone.now()
+        return self.get_queryset().filter(publish_date__lte=now)
 
 
 class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
