@@ -32,6 +32,7 @@ class BlogPostManager(models.Manager):
 class BlogPost(models.Model): # To get the query set of a user -> blogpost_set
     # id = models.IntegerField() or the primary key
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+    image = models.FileField(upload_to='image/', blank=True, null=True)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)  # slug is url encoded value e.g. hello world -> hello-world
     content = models.TextField(null=True, blank=True)
