@@ -21,7 +21,7 @@ class BlogPostQuerySet(models.QuerySet):
         return self.filter(publish_date__lte=now)
 
     def search(self, query):
-        return self.filter(title__iexact=query)
+        return self.filter(content_icontains=query)
 
 
 class BlogPostManager(models.Manager):

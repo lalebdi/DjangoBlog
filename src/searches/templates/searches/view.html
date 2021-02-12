@@ -12,6 +12,10 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         {% endif %}
+
+        {% for blog_item ib blog_list %}
+         {% include "blog/list-inline.html" with blog_item=object truncate=True detail=False %}
+        {% endfor %}
     </div>
 
 </div>

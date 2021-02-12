@@ -5,7 +5,7 @@ from .models import SearchQuery
 
 
 def search_view(request):
-    query = request.GET.get('q', None) # q is the name of the input/ None is for the default value
+    query = request.GET.get('q', None)  # q is the name of the input/ None is for the default value
     user = None
     if request.user.is_authenticated:
         user = request.user
