@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="row">
- {% include "blog/list-inline.html" with blog_post=object truncate=False detail=True %}
+ {% include "blog/list-inline.html" with blog_post=object detail=True %}
 
 
 {% if request.user.is_authenticated %}

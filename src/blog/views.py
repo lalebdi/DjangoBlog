@@ -2,10 +2,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
-
-# Create your views here.
 from .models import BlogPost
 from .forms import BlogPostModelForm
+
+# Create your views here.
+
 
 # Get implies a single object
 # filter implies a list of objects. query sets will help account for the repeated slug problem (Multiple Objects returned)
@@ -27,7 +28,7 @@ def blog_post_list_view(request):
     qs = BlogPost.objects.all().published()  # Objects is a django manager that allows me to call methods without modifying the model
     if request.user.is_authenticated:
         my_qs = BlogPost.objects.filter(user=request.user)
-        qs = (qs | my_qs ).distinct() # <- this combines both query sets of the same class and uses the only ones there
+        qs = (qs | my_qs).distinct() # <- this combines both query sets of the same class and uses the only ones there
     template_name = 'blog/list.html'
     context = {"object_list": qs}  # queryset -> list of objects
     return render(request, template_name, context)
