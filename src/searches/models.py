@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-# Create your models here.
+# Create your models here. -> make migrations -> migrate -> register in the admin
 
 
 class SearchQuery(models.Model):
