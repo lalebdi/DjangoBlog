@@ -39,6 +39,7 @@ INSTALLED_APPS = [  # More like components
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',  # The components should be pluggable by adding a url file and template directory
+    'searches',
 ]
 
 MIDDLEWARE = [
