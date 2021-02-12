@@ -20,6 +20,9 @@ class BlogPostQuerySet(models.QuerySet):
         # same thing as BlogPost.objects.all()
         return self.filter(publish_date__lte=now)
 
+    def search(self, query):
+        return self.filter(title__iexact=query)
+
 
 class BlogPostManager(models.Manager):
     def get_queryset(self):
@@ -27,6 +30,11 @@ class BlogPostManager(models.Manager):
 
     def published(self): # this method calls the published method above
         return self.get_queryset().published()
+
+    def search(self, query=None):
+        if query is None:
+            return self.get_queryset().none()
+        return self.get_queryset().published().search(query)
 
 
 class BlogPost(models.Model): # To get the query set of a user -> blogpost_set

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from blog.models import BlogPost
 from .models import SearchQuery
 # Create your views here. then add it to the project urls
 
@@ -8,7 +9,9 @@ def search_view(request):
     user = None
     if request.user.is_authenticated:
         user = request.user
+    context = {"query": query}
     if query is not None:
         SearchQuery.objects.create(user=user, query=query) # this will save the query every time
-    context = {"query": query}
+        blog_list = BlogPost.objetcs.search(query=query)
+        context['blog_list'] = blog_list
     return render(request, 'searches/view.html', context)
